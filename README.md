@@ -1,2 +1,2 @@
 # Java
-This is my java practise
+This is my Java Practise

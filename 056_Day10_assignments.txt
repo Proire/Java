@@ -1,0 +1,80 @@
+1) create a multi-threaded application by using  "extends Thread " method.create 2 threads. they should display characters from A to J.
+sol:-
+public class MyThread extends Thread 
+{
+	public void run()
+	{
+		for(int i=0; i<11; i++)
+		{
+			System.out.println(Thread.currentThread().getName());
+			System.out.println("Hello : "+(char)('A'+i));
+		}
+	}
+			
+
+	public static void main(String args[])
+	{
+		MyThread mythread1 = new MyThread();
+		MyThread mythread2 = new MyThread();
+		mythread1.setName("Shubman");
+		mythread2.setName("Rohit");
+		mythread1.start();
+		mythread2.start();
+	}
+}
+
+
+2) above program  using "implements Runnable" method.
+sol:-
+class MyThread implements Runnable
+{
+	public  void run()
+	{
+		for(int i=0; i<11; i++)
+		{
+			System.out.println(Thread.currentThread().getName());
+			System.out.println("Hello : "+(char)('A'+i));
+		}
+	}
+}
+public class ThreadDemo
+{
+	public static void main(String args[])
+	{
+		MyThread mythread = new MyThread();
+		Thread thread1 = new Thread(mythread);
+		Thread thread2 = new Thread(mythread);
+		thread1.setName("Shubman");
+		thread2.setName("Rohit");
+		thread1.start();
+		thread2.start();
+	}
+}
+		
+3) create 3 threads in such a way that while one thread is executing, 2 threads cannot interfere. they should display output "Exec  0" to "Exec 5".
+sol:-
+
+
+4)create 2 threads. Write a program which displays number 1 to 10 using class lock. 
+[hint:- use "implements Runnable" and synchronized block]
+
+5) create 2 threads
+	one thread will display 1 to 50
+	second thread will display 50 to 1
+both the threads should start simultaneously.
+
+(use implements method)
+
+
+
+
+
+
+
+
+
+
+
+
+
+

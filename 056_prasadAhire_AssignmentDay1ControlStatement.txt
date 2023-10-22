@@ -1,0 +1,299 @@
+1)display a table of a particular number  
+sol -
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num = new Scanner(System.in).nextInt();
+		for(int i=0; i<10; i++)
+		{	
+			out.println(num+" *"+(i+1)+" = "+num*(i+1));
+		}
+	}
+}
+         
+2)declare two numbers and one operator as a character. e.g. '+'
+using switch... case check which operator is declared and accordingly perform the action.
+sol :- 
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		char operator = new Scanner(System.in).next().charAt(0);
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(Sytem.in).nextInt();
+		switch(operator){
+			case '+': out.println( num1 +num2);
+				break;
+			case '-': out.println(num1-num2);
+				break;
+			case '+': out.println( num1 +num2);
+				break;
+			case '+': out.println( num1 +num2);	
+				break;
+			default: out.println("Please choose correct operator");
+	}
+}
+
+3)Display numbers  1 to 10 using loop
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		for(int i=0; i<10; i++)
+			out.println(i+1);
+	}
+}
+
+4)Display numbers from 3 to 30 except number 24  using loop.
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		for(int i=3; i<30; i++)
+		{
+			if(i!==24)
+				out.println(i);
+		}
+	}
+}
+
+5)Using if…….else if….  Else,  display whether result is  fail, pass, second class , first class, Distinction etc.  
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		float percentage = new Scanner(System.in).nextFloat();
+		if(percentage>80.00)
+			out.println("Distinction");
+		else if(percentage<80.00 && percentage >60.00)
+			out.println("first class");
+		else if(percentage<70.00 && percentage>40.00)
+			out.println("second class");
+		else
+			out.println("fail");
+	}
+}
+
+6) display all prime numbers between 3 to 30
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	static boolean isprime(int m)
+	{
+		if(m==3)
+			return true;
+		else if(m%2==0 && m%3==0)
+			return false;
+		else
+		{
+			for(int i=5; i*i<m; i+=6)
+			{
+				if(m%i==0 || m%(i+2))    
+					return false;
+				return true;
+			}
+		}
+	}
+
+	public static void main(String args[])
+	{
+		for(int i=3; i<30; i++)
+		{
+			if(isprime(i))
+				out.println(i);
+		}
+	}
+}
+
+7) using nested for loop display following :
+
+A  a
+A  b
+A  c
+
+B  a
+B  b
+B  c
+
+C  a
+C  b
+C  c
+
+8) solve following patten programs:
+
+
+    * 
+   * * 
+  * * * 
+ * * * * 
+* * * * * 
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main(String args[])
+{
+	public static void main()
+	{
+		char c = '*';
+		for(int i=0; i<5 ; i++)
+		{
+			for(int j=0; j<5-1-i; j++)
+			{
+				out.println(" ");
+			}
+			for(int k=0; k<i ; K++)
+			{
+				out.println(c+" ");
+			}
+			out.println();
+		}
+	}
+}
+
+
+       * * * * 
+  	* * * 
+  	 * * 
+          * 
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main(String args[])
+{
+	public static void main()
+	{
+		char c = '*';
+		for(int i=1; i<5; i++)
+		{
+			for(int j=0; j<i+7; j++)
+			{
+				out.println(" ");
+			}
+			for(int k=0; k<5-i; K++)
+			{
+				out.println(c+" ");
+			}
+			out.println();
+		}
+	}
+}
+
+
+    * 
+   * * 
+  * * * 
+ * * * * 
+  * * * 
+   * * 
+    * 
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main(String args[])
+{
+	public static void main()
+	{
+		char c = '*';
+		for(int i=0; i<4 ; i++)
+		{
+			for(int j=0; j<5-1-i; j++)
+			{
+				out.println(" ");
+			}
+			for(int k=0; k<i ; K++)
+			{
+				out.println(c+" ");
+			}
+			out.println();
+		}
+	for(int i=4; i>0 ; i--)
+		{
+			for(int j=0; j<5-1-i; j++)
+			{
+				out.println(" ");
+			}
+			for(int k=0; k<i ; K++)
+			{
+				out.println(c+" ");
+			}
+			out.println();
+		}
+	}
+}
+
+
+11) display all prime numbers between 3 to 30
+sol - 
+import static java.lang.System.out
+import java.util.Scanner;
+public class Main
+{	
+	boolean isprime(int k)
+	{
+		boolean flag = True;
+		for(int i=2; i<=Math.sqrt(k); i++)
+		{
+			if(k%i==0)
+				flag = False;
+				break;
+		}
+		return flag;
+	}
+}
+	
+	public static void main(String arg[])
+	{
+		int start = new Scanner(System.in).nextInt();
+		int end = new Scanner(System.in).nextInt();
+		for(int i=start; i<end+1; i++)
+		{
+			if(isprime(i))
+				out.println(i+" ");
+		}
+	}
+}
+
+13) using nested for loop display following :
+
+A  a
+A  b
+A  c
+
+B  a
+B  b
+B  c
+
+C  a
+C  b
+C  c
+sol -
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main(String args[])
+{
+	public static void main()
+	{
+		for(int i=0; i<3; i++)
+		{
+			for(int j=0; j<3; j++)
+			{
+				out.println('A'+i+" "+'a'+j);
+			}
+		}
+	}
+}
+
+

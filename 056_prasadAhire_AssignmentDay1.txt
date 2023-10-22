@@ -1,0 +1,89 @@
+1) accept two numbers and add them.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(System.in).nextInt();
+		out.println("Additon of "+num1 +" + "+" num2 : "+(num1+num2));
+	}
+}
+
+2) accept two numbers and subtract them.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(System.in).nextInt();
+		out.println("Subtraction of "+num1 +" - "+" num2 : "+(num1-num2));
+	}
+}
+
+3) accept two numbers and multiply them.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(System.in).nextInt();
+		out.println("Multiplication of "+num1 +" * "+" num2 : "+(num1*num2));
+	}
+}
+
+4) accept two numbers and divide them.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(System.in).nextInt();
+		out.println("Division of "+num1 +" / "+" num2 : "+(num1/num2));
+	}
+}
+
+5) accept two numbers and check whether first number is greater or second number is greater or they are equal.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		int num2 = new Scanner(System.in).nextInt();
+		if(num1>num2)
+			out.println("num1 is greater than num2");
+		else if(num2>num1)
+			out.println("num2 is greater than num1");
+		else
+			out.println("num1 is equal to num2");
+	}
+}
+6) accept a number and check whether it is divisible by 3 or not.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+public class Main
+{
+	public static void main(String args[])
+	{
+		int num1 = new Scanner(System.in).nextInt();
+		if(num1%3==o)
+			out.println("num1 is divisible by 3");
+		else
+			out.println("num1 is not divisible by 3");
+	}
+}

@@ -1,0 +1,191 @@
+//on developer side
+3)
+//on developer side
+
+interface PersistenceMechanism
+{
+	void writeData(String ref);
+	String readData();
+} 
+
+//on client side 
+class FileSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+		System.out.println("write data inside FileSystem :"+ref);
+	}
+	public string readData()
+	{
+		System.out.println("read data from FileSystem");
+		writeData("File System Writing data");
+	}
+}
+class DatabaseSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+		System.out.println("write data inside DatabaseSystem "+ref);
+	}
+	public String readData()
+	{
+		System.out.println("read data from DatabaseSystems");
+		writeData("Database System Writing data");
+	}
+}
+class BigdataSystem implements PersistenceMechanism
+{
+	public void writeData(String ref)
+	{
+		System.out.println("write data inside BigdataSystem");
+	}
+	public String readData()
+	{
+		System.out.println("read data from BigdataSystem "+ref);
+		writeData("Bigdata System Writing data");
+	}
+}
+public class Demo
+{
+	public static void main(String args[])
+	{
+		PersistenceMechanism persistenceMechanism[] = new PersistenceMechanism[3];
+		persistenceMechanism[0] = new FileSystem();
+		persistenceMechanism[1] = new DatabaseSystem();
+		persistenceMechanism[2] = new BigdataSystem();
+
+		for(int i=0; i<persistenceMechanism.length; i++)
+		{
+			if(persistenceMechanism[i] instanceof BigdataSystem)
+			{
+				persistenceMechanism[i].readData();
+			}
+		}
+	}
+}
+
+
+
+4)
+//on developer side 
+public interface Vehicle
+{
+	void changeGear(int a);
+	void speedUp(int a);
+	void applyBrakes(int a);
+}
+
+// on the client side 
+import java.util.scanner;
+class FourWheeler implements Vehicle
+{
+	void changeGear(int a)
+	{
+		System.out.println("change gear of Fourwheeler by "+a);
+	}
+	void speedUp(int a)
+	{
+		System.out.println("speed up the Fourwheeler by "+a);
+	}
+	void applyBrakes(int a)
+	{
+		System.out.println("apply Brakes to Fourwheeler by "+a);
+	}
+}
+class TwoWheeler implements Vehicle
+{
+	void changeGear(int a)
+	{
+		System.out.println("change gear of Twowheeler by "+a);
+	}
+	void speedUp(int a)
+	{
+		System.out.println("speed up the Twowheeler by "+a);
+	}
+	void applyBrakes(int a)
+	{
+		System.out.println("apply Brakes to Twowheeler by "+a);
+	}
+}
+public class Demo
+{	
+	public void static perform(Vehicle vehicle)
+	{
+		if(vehicle instance of FourWheeler)
+		{	
+			System.out.println("Enter the values for FourWheeler ");
+			String nums = new Scanner(System.in).next().split();
+			int num1 = parseInt(nums[0]);
+			int num2 = parseInt(nums[1]);
+			int num3 = parseInt(nums[2]);
+			vehicle.changeGear(num1);
+			vehicle.speedUp(num2);
+			vehicle.applyBrakes(num3);
+		}
+		if(vehicle instance of TwoWheeler)
+		{	
+			System.out.println("Enter the values for TwoWheeler ");
+			String nums = new Scanner(System.in).next().split();
+			int num1 = parseInt(nums[0]);
+			int num2 = parseInt(nums[1]);
+			int num3 = parseInt(nums[2]);
+			vehicle.changeGear(num1);
+			vehicle.speedUp(num2);
+			vehicle.applyBrakes(num3);
+		}
+	}
+	public static void main(String args[])
+	{
+		perform(new FourWheeler());
+		perform(new TwoWheeler());
+	}
+}
+
+5)inside project 
+	package weaponpack
+
+public class Weapon
+{
+	public void attack()
+	{
+	
+	}
+}
+public class sword extends Weapon
+{
+	public void attack()
+	{
+		System.out.println("Sword Slashing ");
+	}
+}
+public class Bomb extends Weapon
+{
+	public void attack()
+	{
+		System.out.println("Bomb blasting ");
+	}
+}
+public class Gun extends Weapon
+{
+	public void attack()
+	{
+		System.out.println("Gun firing ")
+	}
+	public void fillBullets()
+	{
+		System.out.println("Filling Bullets ");
+	}
+}
+public class Soldier
+{
+	public void fight(Weapon weapon)
+	{
+		weapon.attack();
+		if(weapon instanceof Gun)
+		{
+			Gun gun = (gun)weapon;
+			gun.fillBullets();
+		}
+	}
+}
+	

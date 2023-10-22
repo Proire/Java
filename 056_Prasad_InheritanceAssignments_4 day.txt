@@ -1,0 +1,590 @@
+1) Define 2 classes “First” and “Second” with member variables , member functions and constructors of  your choice. Now define a class “Two” in which define main function .In main function create various instances of First and Second  and call their individual member functions.
+sol:-
+// Save filename as Two.java
+import static java.lang.System.out;
+import java.util.Scanner;
+class First
+{
+	private int num1;
+	private String name1;
+	
+	First()
+	{
+		num1 = 0;
+		name1 = null;
+	}
+	
+	First(int num1)
+	{
+		this.num1 = num1;
+	}
+
+	First(int num1, String name1)
+	{
+		this.num1 = num1;
+	}
+		
+	void display()
+	{
+		out.println("The value of num1 : "+num1+" and name1 : "+name1);
+	}
+}
+class Second
+{
+	private int num2;
+	private String name2;
+	
+	Second()
+	{
+		num2 = 0;
+		name2 = null;
+	}
+	
+	Second(int num2)
+	{
+		this.num2 = num2;
+	}
+
+	Second(int num2, String name2)
+	{
+		this.num2 = num2;
+	}
+		
+	void display()
+	{
+		out.println("The value of num2 : "+num2+" and name2 : "+name2);
+	}
+}
+public class Two
+{
+	public static void main(String args[])
+	{
+		First f1 = new First(); // first constructor invoked  // No-args or defualt constructor
+		First f2 = new First(20); // second constructor invoked   // parameterized constructor with one argument
+		First f3 = new First(30,"First_class"); // Third connstrcutor invoked   // parameterized cnostructor with two argument
+		
+		Second s1 = new Second();
+		Second s2 = new Second(65);
+		Second s3 = new Second(80);
+		
+		f1.display();
+		f2.display();
+		f3.display();
+
+		s1.display();
+		s2.display();
+		s3.display();
+	}
+}
+
+2) Create a class with static and non-static member variables. Define static and non-static member functions. Create instance of this class and call both static and non-static member functions.
+sol:- 
+// Play.java
+class Player
+{
+	private String name;
+	private int runs;
+	private static int Playercount = 0;
+	
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getRuns() {
+		return runs;
+	}
+	public void setRuns(int runs) {
+		this.runs = runs;
+	}
+	public static int getPlayercount() {
+		return Playercount;
+	}
+	public static void setPlayercount(int playercount) {
+		Playercount = playercount;
+	}	
+}
+
+public class Play{
+
+	public static void main(String[] args) {
+		Player p1 = new Player();
+		p1.setName("Virat");
+		p1.setRuns(164);
+		Player.setPlayercount(1);
+		System.out.println("The name of the player is "+p1.getName());
+		System.out.println("The runs scored by him is "+p1.getRuns());
+		System.out.println("The playercount for the match is "+Player.getPlayercount());
+		
+		Player p2 = new Player();
+		p2.setName("Rohit");
+		p2.setRuns(264);
+		Player.setPlayercount(1);
+		System.out.println("The name of the player is "+p2.getName());
+		System.out.println("The runs scored by him is "+p2.getRuns());
+		System.out.println("The playercount for the match is "+Player.getPlayercount());
+	}
+
+}
+
+3) Define a class “Check” in which declare member variables using  different accessibility modifiers i.e.  <default>, private ,public and protected.   Define a function “disp”  which should be public.  Define a class “CheckDemo” in which you will write “main()” function. Create an instance of  the class “Check” and  show how many  variables can be accessed directly and how many indirectly.
+sol:-
+// Check_demo
+
+class Check
+{
+	int Check_number;
+	protected String Payee;
+	private int Amount;
+	public int Date;
+	
+	Check(int Amount)
+	{
+			this.Amount = Amount;
+	}
+	int getAmount()
+	{
+			return Amount;
+	}
+	public void disp()
+	{
+		System.out.println("Check_number : "+Check_number+" Payee : "+Payee+" Amount : "+" Date : "+Date);
+	}
+}
+public class Check_demo
+{
+	public static void main(String args[])
+	{
+		Check check = new Check(80000);
+		check.Check_number = 100000;
+		check.Payee = "Ashwin";
+		check.Date = 17;
+		check.Amount = 90000; // error private is accessible inside class only
+		System.out.println("Amount : "+check.getAmount());
+		check.disp();
+	}
+}
+
+4)Show the example of single level inheritance with constructor invocation.
+sol:- 
+// Phone.java
+package client;
+class Mobile
+{
+	private String name;
+	static int price;
+	
+	Mobile()
+	{
+		this.name = "sony xperia c3";
+		this.price = 21000;
+	}
+	Mobile(String name)
+	{
+		this.name = name;
+		this.price = 20000;
+	}
+	Mobile(String name,int price)
+	{
+		this.name = name;
+		this.price = price;
+	}
+	public void display()
+	{
+		System.out.println("Name : "+name+" price : "+price);
+	}
+}
+public class Phone
+{
+	public static void main(String args[])
+	{
+		Mobile First_mobile = new Mobile();
+		Mobile Second_mobile = new Mobile("Realme 8s");
+		Mobile Third_mobile = new Mobile("Apple 6s",35000);
+		
+		First_mobile.display();
+		Second_mobile.display();
+		Third_mobile.display();
+	}
+}
+
+5) Show the example of multi-level inheritance with constructor invocation.
+sol:
+// use.java
+class FourWheeler
+{
+	private String name;
+	final static int Number_of_wheels = 4;
+	private int price;
+	
+	FourWheeler(String name, int price)
+	{
+		System.out.println("Inside Fourwheeler");
+		this.name = name;
+		this.price = price;
+	}
+	public void info()
+	{
+		System.out.println("Name : "+name+" price : "+price);
+	}
+	public void start()
+	{
+		System.out.println("Driving inside FourWheeler");
+	}
+	public static int getNumber_of_wheels()
+	{
+		return Number_of_wheels;
+	}
+}
+class Car extends FourWheeler
+{
+	private String Manufacturer;
+	private int average;
+	
+	Car(String name, int average, String Manufacturer, int price)
+	{
+		super(name,price);
+		System.out.println("Inside Car");
+		this.Manufacturer = Manufacturer;
+		this.average = average;
+	}
+	public void info()
+	{
+		System.out.println("car_name : "+Manufacturer+" average : "+average);
+	}
+	public void start()
+	{
+		System.out.println("Driving car");
+	}
+}
+class BMW extends Car
+{
+	private char Series_name;
+	private int top_speed;
+	BMW(String name, int average, String Manufacturer, int price, char Series_name, int tp)
+	{
+		super(name,average,Manufacturer,price);
+		System.out.println("Inside BMW");
+		this.Series_name = Series_name;
+		this.top_speed = tp;
+	}
+	public void info()
+	{
+		System.out.println("Series_name : "+Series_name+" top_speed : "+top_speed);
+	}
+	
+}
+public class use
+{
+	public static void main(String args[])
+	{
+		BMW bmw = new BMW("Sports",12,"BMW",4000000,'s',320);
+		bmw.info();
+		bmw.start();
+		Car city = new BMW("Sedan",17,"Honda",1000000,'u',220);
+		city.info();
+		city.start();
+	}
+}
+
+6)Show the example of hierarchical inheritance with constructor invocation.
+sol:-
+// SeeMovie
+class Movie
+{
+	String name;
+	static int movie_count;
+	static int nextyear=2023;
+	{
+		movie_count++;
+	}
+	static {
+		nextyear++;
+	}
+	Movie()
+	{
+		System.out.println("Inside Movie default");
+		name = "predistination";
+	}
+	Movie(String name)
+	{
+		System.out.println("Inside Movie param");
+		this.name = name;
+	}
+	public void book_my_show()
+	{
+		System.out.println("show Name : "+name);
+	}
+	public static int moviecount()
+	{
+		return movie_count;
+	}
+}
+class Marvels extends Movie
+{
+	private int time;
+	private int ticket_price;
+	
+	Marvels(int time, int ticket_price, String name)
+	{
+		super(name);
+		System.out.println("Inside Marvels");
+		this.time = time;
+		this.ticket_price = ticket_price;
+	}
+	public void book_my_show()
+	{
+		System.out.println("Booking confirmed for : "+name+" at "+time+"pm of "+ticket_price);
+	}
+}
+class Motion extends Movie
+{
+	private int time;
+	private int ticket_price;
+	
+	Motion(int time, int ticket_price, String name)
+	{
+		super(name);
+		System.out.println("Inside Motion");
+		this.time = time;
+		this.ticket_price = ticket_price;
+	}
+	public void book_my_show()
+	{
+		System.out.println("Booking confirmed for : "+name+" at "+time+"pm of "+ticket_price);
+	}
+}
+class WB extends Movie
+{
+	private int time;
+	private int ticket_price;
+	
+	WB(int time, int ticket_price, String name)
+	{
+		super(name);
+		System.out.println("Inside WB");
+		this.time = time;
+		this.ticket_price = ticket_price;
+	}
+	public void book_my_show()
+	{
+		System.out.println("Booking confirmed for : "+name+" at "+time+"pm of "+ticket_price);
+	}	
+}
+
+public class SeeMovie
+{
+	public static void main(String args[])
+	{
+		WB wb = new WB(9,250,"Harry Potter");
+		wb.book_my_show();
+		System.out.println(Movie.moviecount());
+		System.out.println("Year now is : "+Movie.nextyear);
+		Movie movie1 = new WB(2,450,"The meg");
+		movie1.book_my_show();
+		System.out.println(Movie.moviecount());
+		System.out.println("Year now is : "+Movie.nextyear);
+		Movie movie2 = new Marvels(10,550,"The Endgame");
+		movie2.book_my_show();
+		System.out.println(Movie.moviecount());
+		System.out.println("Year now is : "+Movie.nextyear);
+		Movie movie3 = new Motion(11,450,"The Malvariek");
+		movie3.book_my_show();
+		System.out.println("Total movies_count uptill now is : "+Movie.moviecount());
+		System.out.println("Year now is : "+Movie.nextyear);
+	}
+}
+7) Define a parent and a child class . Now explain function overriding with Example.
+sol - 
+// Buyhouse.java
+class House
+{
+	String owner;
+	int price;
+	
+	House()
+	{
+		System.out.println("Inside House");
+		owner = null;
+		price = 20000000;
+	}
+	House(String owner,int price)
+	{
+		System.out.println("Inside House param");
+		this.owner = owner;
+		this.price = price;
+	}
+	public void buy()  // overridden
+	{
+		System.out.println("show owner : "+owner+" price "+price);
+	}
+}
+class Banglow extends House
+{
+	private int number_of_rooms;
+	private int size;
+	
+	Banglow(int number_of_rooms, int size, String owner, int price)
+	{
+		super(owner ,price);
+		System.out.println("Inside Banglow");
+		this.number_of_rooms = number_of_rooms;
+		this.price = price;
+	}
+	public void buy()  // overriding 
+	{
+		System.out.println("Buy Banglow of number of rooms : "+number_of_rooms+" size:  "+size);
+	}
+}
+public class Buyhouse
+{
+	public static void main(String args[])
+	{
+		Banglow banglow = new Banglow(8,50,"Kohli's",60000000);
+		banglow.buy(); // Here buy of banglow will be display
+	}
+}
+
+8) Define a parent class with one function. Define child class with the function having same name as of parent class function, but having different argument.
+Create an instance of child class and call the functions. Make sure u have followed the concept of “function overloading “ in inheritance.
+sol :- 
+//Buyfood.java
+class FoodItem
+{
+	String name;
+	
+	FoodItem()
+	{
+		System.out.println("Inside FoodItem");
+		name = "NOMeal";
+	}
+	FoodItem(String name)
+	{
+		this.name = name;
+	}
+	public void buy() 
+	{
+		System.out.println("show fooditem name : "+name);
+	}
+}
+class Fruit extends FoodItem
+{
+	String color;
+	
+	Fruit(String color,String name)
+	{
+		super(name);
+		System.out.println("Inside Fruit");
+		this.color = color;
+	}
+	public void buy(String name)  // overloading
+	{
+		System.out.println("show color : "+color+" name is "+name);
+	}
+}
+public class BuyFood
+{
+	public static void main(String args[])
+	{
+		Fruit fruit = new Fruit("Pink","dragon Fruit");
+		fruit.buy();
+		fruit.buy("Raspberry");
+	}
+}
+
+9) Define a class “Shape” with “draw()” function . Now derive  classes like “Circle”, “Polygon”,”Rectangle” etc. from “Shape” and override “draw()” function. Define a class “ShapeDemo” in which  write  main()  function. In the main function create a reference to Shape class referring to any of the sub class. Using this reference, call “draw()” and check the result.
+sol:-
+//ShapeDemo
+class Shape
+{
+	public void draw()
+	{
+		System.out.println("Inside Shape ");
+	}
+}
+class Circle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Inside Circle ");
+	}
+}
+class Polygon extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Inside Polygon ");
+	}
+}
+class Rectangle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("Inside Rectangle ");
+	}
+}
+public class ShapeDemo
+{
+	static void draw(Shape shape)
+	{
+		shape.draw();
+	}
+	public static void main(String args[])
+	{
+		Shape shape1 = new Circle();
+		Shape shape2 = new Polygon();
+		Shape shape3 = new Rectangle();
+		shape1.draw();
+		shape2.draw();
+		shape3.draw();
+		draw(new Circle());
+		draw(new Rectangle());
+		draw(new Polygon());
+	}
+}
+
+10) Define an interface “Vechicle” with “start()” function . Now derive  classes like “TwoWheeler”, “ThreeWheeler”,”FourWheeler” etc. from “Vehicle” and override “start()” function. Define a class “VDemo” in which  write  main()  function. In the main function create a reference to Vehicle  class referring to any of the sub class. Using this reference, call “start" method.
+sol:-
+// VDemo.java
+class Vehicle
+{
+	public void start()
+	{
+		System.out.println("Inside Vehicle");
+	}
+}
+
+class TwoWheeler extends Vehicle
+{
+	public void start()
+	{
+		System.out.println("Inside TwoWheeler");
+	}
+}
+class ThreeWheeler extends Vehicle
+{
+	public void start()
+	{
+		System.out.println("Inside ThreeWheeler");
+	}
+}
+class FourWheeler extends Vehicle
+{
+	public void start()
+	{
+		System.out.println("Inside FourWheeler");
+	}
+}
+public class VDemo
+{	static void start(Vehicle vehicle)
+	{
+		vehicle.start();
+	}
+	public static void main(String args[])
+	{
+		start(new TwoWheeler());
+		start(new FourWheeler());
+		start(new ThreeWheeler());
+	}
+}		

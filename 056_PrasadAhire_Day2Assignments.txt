@@ -1,0 +1,296 @@
+1)create a class "Shape" with 2 attributes, "width" and "height". Make sure one can not access these attributes directly.
+provide accessor methods on these attributes and allow them to call from outside of your class.
+sol :- 
+import static java.lang.System.out;
+import java.util.Scanner;
+class Shape
+{
+	private int width;
+	private int height;
+	public void setwidth(int width)
+	{
+		this.width=width;
+	}
+	public int getwidth()
+	{
+		return width;
+	}
+	public void setheight(int height)
+	{
+		this.height=height;
+	}
+	public int getheight()
+	{
+		return height;
+	}
+}
+	
+public class Main
+{
+	public static void main(String args[])
+	{
+		Shape s = new Shape();
+		out.println(s.getwidth());
+		out.println(s.getheight());
+		s.setwidth(20);
+		s.setheight(40);
+		out.println(s.getwidth());
+		out.println(s.getheight());
+	}
+}
+		
+
+2) Define a class "MyClass" and make sure clients can instantiate it , 
+a) without any argument
+b) with one int argument
+c) with two int arguments
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+class MyClass
+{
+	int num1;
+	int num2;
+	MyClass()
+	{
+		this.num1=0;
+		this.num2=0;
+	}
+	MyClass(int num1)
+	{
+		this.num1=num1;
+		this.num2=0;
+	}
+	MyClass(int num1,int num2)
+	{
+		this.num1=num1;
+		this.num2=num2;
+	}
+	public void display()
+	{
+		out.println("num1 : "+num1+"\t"+"num2 : "+num2);
+	}
+}
+public class Main
+{
+	public static void main(String []args)
+	{
+	// first way to create object using default/No-arg constructor		
+	MyClass m1 = new MyClass();
+	
+	// second way to create object using parameterized constructor with one integer as arguement
+	MyClass m2 = new MyClass(50);
+
+	// third way to create object using parameterized constructor with two integers as arguement
+	MyClass m3 = new MyClass(100);
+	
+	m1.display();
+	m2.display();
+	m3.display();
+	}
+}
+	
+		
+
+3) Define a class "Emp" with private static member "int cnt".
+How will u make sure that outsiders can read the value of cnt ?
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+class Emp
+{
+	private static int cnt;
+	Emp()
+	{
+		cnt = 0;
+	}
+	public void setcnt(int num)
+	{
+		cnt = num;
+	}
+	public static int getcnt()
+	{
+		return cnt;
+	}
+}
+public class Main
+{
+	public static void main(String args[])
+	{
+		Emp e = new Emp();
+		out.println("Value of cnt before assigning : "+e.getcnt());
+		e.setcnt(100);
+		out.println("Value of cnt after assigning : "+e.getcnt());
+	}
+}
+
+4) Define a class "DemoOb". 
+create an instance of it.
+now create a reference and assign the reference created in the above statement.
+	Discuss what happens?
+Now since u have 2 references, take one of the reference and assign a new instance of the class.
+	Discuss what happens?
+(For ur discussion, write necessary comments in the program)
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+class DemoOb
+{
+	int demo = 20;
+	public void displaynum()
+	{
+		out.println("The value of num is : "+demo);
+	}
+	public void setnum(int num)
+	{
+		demo = num;
+	}
+}
+public class Main
+{
+	public static void main(String args[])
+	{
+		DemoOb ob = new DemoOb();
+		ob.setnum(100);
+		ob.displaynum();
+		DemoOb ob2 = ob;
+		ob2.setnum(200);
+		ob2.displaynum();
+		ob = new DemoOb();
+		ob2.setnum(300);
+		ob2.displaynum();
+	}
+}
+
+5) Define 3 classes A , B and C
+in all these classes create static and nonstatic variables as well as methods.
+	Now Define a class "Demo" ,in which define "main" function. From this main function try to access all the members of A ,B  and C.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+class A
+{
+	private int A;
+	private static int a;
+	public void setA(int A)
+	{
+		this.A=A;
+	}
+	public void seta(int a)
+	{
+		this.a=a;
+	}
+	public int getA()
+	{
+		return A;
+	}
+	public int geta()
+	{
+		return a;
+	}
+}
+class B
+{
+	private int B;
+	private static int b;
+	public void setB(int B)
+	{
+		this.B=B;
+	}
+	public void setb(int b)
+	{
+		this.b=b;
+	}
+	public int getB()
+	{
+		return B;
+	}
+	public int getb()
+	{
+		return b;
+	}
+}
+class C
+{
+	private int C;
+	private static int c;
+	public void setC(int C)
+	{
+		this.C=C;
+	}
+	public void setc(int c)
+	{
+		this.c=c;
+	}
+	public int getC()
+	{
+		return C;
+	}
+	public int getc()
+	{
+		return c;
+	}
+}
+public class Demo
+{
+	public static void main(String args[])
+	{
+		A oba = new A();
+		oba.setA(10);
+		oba.seta(100);
+		out.println(oba.getA());
+		out.println(oba.geta());
+		B obb = new B();
+		obb.setB(20);
+		obb.setb(200);
+		out.println(obb.getB());
+		out.println(obb.getb());
+		C obc = new C();
+		obc.setC(30);
+		obc.setc(300);
+		out.println(obc.getC());
+		out.println(obc.getc());
+	}
+}
+
+6) define static initializers in the above A,B and C classes and check the order of their execution.
+sol:-
+import java.util.Scanner;
+import static java.lang.System.out;
+class A
+{
+	static{
+		out.println("Inside A static intializer");
+	}
+	
+}
+class B
+{
+	static{
+		out.println("Inside B static intializer");
+	}
+	
+}
+class C
+{
+	static{
+		out.println("Inside C static intializer");
+	}
+	
+}
+public class Demo
+{
+	static
+	{
+		out.println("inside Demo static initializer");
+	}
+	
+	public static void main(String args[])
+	{
+		A oba = new A();
+		
+		B obb = new B();
+		
+		C obc = new C();
+	}
+}

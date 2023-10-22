@@ -1,0 +1,396 @@
+1)
+abstract class Course
+{
+	public void start()
+	{
+		System.out.println("start the Course...");
+	}
+	public abstract double getFee();
+	public abstract void evaluate();
+}
+
+class DACDBDA extends Course
+{
+	private int Fee = 100000;
+	public void start()
+	{
+		System.out.println("DACDBDA Course starts...");
+	}
+	public double getFee()
+	{
+		return Fee;
+	}
+	public void evaluate()
+	{
+		System.out.println("Evaluating Score for DACDBDA students....");
+	}
+}
+class MSCitCourse extends Course
+{
+	private int Fee = 500000;
+	public double getFee()
+	{
+		return Fee;
+	}
+	public void evaluate()
+	{
+		System.out.println("Evaluating Score for MSCit students....");
+	}
+}
+
+public class CourseDemo
+{
+	static void perform(Course course)
+	{
+		course.start();
+		course.getFee();
+		course.evaluate();
+	}
+	public static void main(String args[])
+	{
+		perform(new DACDBDA());
+		perform(new MSCitCourse());
+	}
+}
+
+2)
+abstract class Beverages
+{
+	public void addMilk()
+	{
+		System.out.println(" Milk is added .....");
+	}
+	abstract void addIngredients();
+}
+class Coffee extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println(" Ingredients of Coffee are added .....");
+	}
+}
+class Tea extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println(" Ingredients of Tea are added ....");
+	}
+}
+class FruitJuice extends Beverages
+{
+	void addIngredients()
+	{
+		System.out.println(" Ingredients of FruitJuice are added ....");
+	}
+}
+public class Demo
+{
+	public static void main(String args[])
+	{
+		Beverages beverages[] = new Beverages[3];
+		beverages[0] = new Coffee();
+		beverages[1] = new Tea();
+		beverages[2] = new FruitJuice();
+		for(int i=0 ; i<beverages.length; i++)
+		{
+			beverages[i].addMilk();
+			beverages[i].addIngredients();
+		}
+	}
+}
+
+3)
+abstract class Shape
+{
+	abstract void draw();
+	public void show()
+	{
+		System.out.println("Show Shape...");
+	}
+}
+class Triangle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Triangle ....");
+	}
+}
+class Rectangle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Rectangle ....");
+	}
+}
+class Circle extends Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Circle ....");
+	}
+}
+public class ShapeDemo
+{
+	public static void main(String args[])
+	{
+		Shape shape[] = new Shape[3];
+		shape[0] = new Triangle();
+		shape[1] = new Rectangle();
+		shape[2] = new Circle();
+		for(int i=0; i<shape.length; i++)
+		{
+			shape[i].draw();
+			shape[i].show();
+		}
+	}
+}
+	
+4)
+import java.util.Scanner;
+class UIComponent{}
+class Button extends UIComponent{}
+class TextField extends UIComponent{}
+class CheckBox extends UIComponent{}
+abstract class UIComponentCreator
+{
+	public void show(String type)
+	{
+		UIComponent comp = CreateUIComponent(type); 
+		add(comp);
+	}
+	public void add(UIComponent component)
+	{
+		System.out.println("Added the component\t"+component);
+	}
+	public abstract UIComponent createUIComponent(String type);
+}
+
+class WindowsUIComponentCreator extends UIComponentCreator
+{
+	UIComponent CreateUIComponent(string type)
+	{
+		if("Button".equalsIgnoreCase(type))
+		{
+			return new Button();
+		}
+		else if("TextField".equalsIgnoreCase(type))
+		{
+			return new TextFeild();
+		}
+		else if("CheckBox".equalsIgnoreCase(type))
+		{
+			return new CheckBox();
+		}
+	}
+}
+public class LinuxUIComponentCreator extends UIComponentCreator
+{
+	UIComponent CreateUIComponent(string type)
+	{
+		if("Button".equalsIgnoreCase(type))
+		{
+			return new Button();
+		}
+		else if("TextField".equalsIgnoreCase(type))
+		{
+			return new TextFeild();
+		}
+		else if("CheckBox".equalsIgnoreCase(type))
+		{
+			return new CheckBox();
+		}
+	}
+}
+public class MacUIComponentCreator extends UIComponentCreator
+{
+	UIComponent CreateUIComponent(string type)
+	{
+		if("Button".equalsIgnoreCase(type))
+		{
+			return new Button();
+		}
+		else if("TextField".equalsIgnoreCase(type))
+		{
+			return new TextFeild();
+		}
+		else if("CheckBox".equalsIgnoreCase(type))
+		{
+			return new CheckBox();
+		}
+	}
+}
+public class UIComponentCreatorDemo
+{
+	public static void main(String args[])
+	{
+		WindowsUIComponentCreator windowsUIComponentCreator = new WindowsUIComponentCreator();
+		WindowsUIComponentCreator.show("button");
+		
+		LinuxUIComponentCreator linuxUIComponentCreator = new LinuxUIComponentCreator();
+		linuxUIComponentCreator.show("textfield");
+		
+		MacUIComponentCreator macUIComponentCreator = new MacUIComponentCreator();
+		macUIComponentCreator.show("checkbox");
+	}
+}
+5)
+public class CLIDemo
+{
+	public static void main(String args[])
+	{ 
+		System.out.println("Sum of three numbers accepted from command line "+(args[0]+args[1]+args[2]));  // Sum of three numbers accepted from command line 60
+	}
+}
+
+// on command line : java CLIDemo 10 20 30 
+
+6)
+class Course
+{
+	public void start()
+	{
+		System.out.println(" Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println(" Course Stopped .....");
+	}
+}
+class DACDBDA extends Course
+{
+	public void start()
+	{
+		System.out.println("DACDBDA Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("DACDBDA Course Stopped .....");
+	}
+	public void orientation()
+	{
+		System.out.println("DACDBA orientation ....");
+	}
+}
+class MSCit extends Course
+{
+	public void start()
+	{
+		System.out.println("MSCit Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("MSCit Course Stopped .....");
+	}
+}
+class Basic extends Course
+{
+	public void start()
+	{
+		System.out.println("MSCit Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("MSCit Course Stopped .....");
+	}
+}
+public class CourseDemo
+{
+	public static void main(String args[])
+	{
+		Course course[] = new Course[3];
+		course[0] = new DACDBDA();
+		course[1] = new MSCit();
+		course[2] = new Basic();
+		for(int i=0; i<course.length; i++)
+		{
+			course[i].start();
+			if(course[i] instanceof DACDBDA)
+			{
+				DACDBDA ref = (DACDBDA)course[i];
+				ref.orientation();
+			}
+	}
+}
+
+7)
+interface Course
+{
+	void start();
+	void stop();
+}
+
+class DACDBDA implements Course
+{
+	public void start()
+	{
+		System.out.println("DACDBDA Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("DACDBDA Course Stopped .....");
+	}
+	public void orientation()
+	{
+		System.out.println("DACDBA orientation ....");
+	}
+}
+class MSCit implements Course
+{
+	public void start()
+	{
+		System.out.println("MSCit Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("MSCit Course Stopped .....");
+	}
+}
+class Basic implements Course
+{
+	public void start()
+	{
+		System.out.println("MSCit Course started .....");
+	}
+	public void stop()
+	{
+		System.out.println("MSCit Course Stopped .....");
+	}
+}
+public class CourseDemo
+{
+	public static void show(Course course)
+	{
+		course.start();
+		course.stop();
+		if(course instanceof DACDBDA)
+		{
+			DACDBDA temp = (DACDBDA)course;
+			temp.orientation();
+		}
+	}
+	public static void main(String args[])
+	{
+		show(new DACDBDA());
+		show(new Basic());
+		show(new MSCit());
+	}
+}
+8)
+import java.util.Scanner;
+public class Demo
+{
+	static void display(String nums[])
+	{
+		int sum = 0;
+		for(int i=0; i<nums.length;i++ )
+		{
+			sum += Integer.parseInt(nums[i]);
+		}
+		System.out.println("Sum : "+sum);
+	}
+	public static void main(String args[])
+	{
+		String nums[] = new Scanner(System.in).nextLine().split(" ");
+		display(nums);
+	}
+}

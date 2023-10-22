@@ -1,0 +1,97 @@
+Developer side source code
+first class file with name : Player.java
+/**
+ * 
+ */
+package devpack;
+
+/**
+ * @author prasad
+ *
+ */
+public class Player {
+		String name = "Virat";
+		int jersey_number = 18;
+		public String getName() {
+			return name;
+		}
+
+		public void setName(String name) {
+			this.name = name;
+		}
+
+		public int getJersey_number() {
+			return jersey_number;
+		}
+
+		public void setJersey_number(int jersey_number) {
+			this.jersey_number = jersey_number;
+		}
+
+		public void display()
+		{
+			System.out.println("Name of the player is "+name+"and Jersey number is "+jersey_number);
+		}
+
+		public void display()
+		{
+			System.out.println("Name of the player is "+name+"and Jersey number is "+jersey_number);
+		}
+}
+Second class file with Class name : Capatain.java
+
+/**
+ * 
+ */
+package ClientApp;
+
+/**
+ * @author prasad
+ *
+ */
+public class Capatain {
+	String name = "MS Dhoni";
+	int experience = 9;
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
+	}
+	public int getExperience() {
+		return experience;
+	}
+	public void setExperience(int experience) {
+		this.experience = experience;
+	}
+	
+	public void display()
+	{
+		System.out.println("Name of the Captain is "+name+"and his experience is "+experience);
+	}
+}
+
+
+client side 
+
+package ClientApp;
+import devpack.Player;
+import devpack.Captain;
+public class Client {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+			Player player = new Player();
+			player.display();
+			player.setName("KL Rahul");
+			player.setJersey_number(1);
+			System.out.println("Player new introduced is "+player.getName()+" and his Jersey number is "+getJersey_number());
+			
+			Captain captain = new Captain();
+			captain.display();
+			captain.setName("Rohit");
+			captain.setExperience(3);
+			System.out.println("Captain new introduced is "+captain.getName()+" and his Experience is "+getExperince());
+	}
+
+}

@@ -1,4 +1,97 @@
+1)
 //on developer side
+interface Shape
+{
+	void draw();
+}
+class Triangle implements Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Triangle ....");
+	}
+}
+class Rectangle implements Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Rectangle ....");
+	}
+}
+class Circle implements Shape
+{
+	public void draw()
+	{
+		System.out.println("draw Circle ....");
+	}
+}
+
+//on client side 
+public class Demo
+{
+	public static void main(String args[])
+	{
+		Shape shape[] = new Shape[3];
+		shape[0] = new Triangle();
+		shape[1] = new Rectangle();
+		shape[2] = new Circle();
+		for(int i=0; i<shape.length; i++)
+		{
+			shape[i].draw();
+		}
+	}
+}
+
+2)
+interface MouseHandler
+{
+	void mouseClicked();
+	void mousePressed();
+	void mouseReleased();
+}
+interface WindowHandler
+{
+	void windowClosing();
+	void windowClosed();
+}
+class WindowGUIApp implements MouseHandler,WindowHandler
+{
+	public void mouseClicked()
+	{
+		System.out.println("Windows mouse is Clicked ....");
+	}
+	public void mousePressed()
+	{
+		System.out.println("Windows mouse is Pressed ....");
+	}
+	public void mouseReleased()
+	{
+		System.out.println("Windows mouse is Released ....");
+	}
+	public void windowClosing()
+	{
+		System.out.println("Windows  is Closing ....");
+	}
+	public void windowClosed()
+	{
+		System.out.println("Windows  is Closed ....");
+	}
+}
+
+public class Demo
+{
+	public static void main(String args[])
+	{
+		WindowGUIApp windowGUIApp = new WindowGUIApp();
+		windowGUIApp.mouseClicked();
+		windowGUIApp.mousePressed();
+		windowGUIApp.mouseReleased();
+		windowGUIApp.windowClosing();
+		windowGUIApp.windowClosed();
+	}
+}
+
+
 3)
 //on developer side
 
